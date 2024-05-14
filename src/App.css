@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+html {
+    font-family: 'Reddit Sans', sans-serif;
+}
+/* ----------------------Reseteo----------------------- */
+body{
+    margin: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+h1, h2, h3, p, ul, hr{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ul{
+    padding-left: 0;
+    list-style: none;
+}
+
+input{
+    outline: none;
+}
+
+button, input{
+    font-family: inherit;
+}
+
+/* -----------------------Estilos------------------------ */
