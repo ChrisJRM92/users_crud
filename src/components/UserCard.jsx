@@ -1,5 +1,6 @@
+import './UserCard.css'
 
-const UserCard = ({ user, deleteUser, setUserSelected }) => {
+const UserCard = ({ user, deleteUser, setUserSelected, setFormIsOpen }) => {
 
     const handleDelete = () =>{
       deleteUser(user?.id)
@@ -7,6 +8,7 @@ const UserCard = ({ user, deleteUser, setUserSelected }) => {
 
     const handleEdit = () =>{
       setUserSelected(user)
+      setFormIsOpen(true)
     }
 
   return (
@@ -15,16 +17,18 @@ const UserCard = ({ user, deleteUser, setUserSelected }) => {
         <hr />
         <ul>
             <li>
-                <span>Correo</span>
-                <span>{user?.email}</span>
+                <span className='email'>Correo</span>
+                <div className='icon'><i class="fa-regular fa-envelope"></i><span className='spam_email'>{user?.email}</span></div>
             </li>
             <li>
-                <span>Cumpleaños</span>
-                <span>{user?.birthday}</span>
+                <span className='birthday'>Cumpleaños</span>
+                <div className='icon'><i class="fa-solid fa-cake-candles"></i><span className='spam_bd'>{user?.birthday}</span></div>
             </li>
         </ul>
-        <button onClick={handleDelete}>Borrar</button>
-        <button onClick={handleEdit}>Editar</button>
+        <div className='btn'>
+          <button className='btn1' onClick={handleDelete}>Eliminar usuario</button>
+          <button className='btn2' onClick={handleEdit}>Editar usuario</button>
+        </div>
     </article>
   )
 }

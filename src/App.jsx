@@ -7,23 +7,34 @@ import UserCard from './components/UserCard'
 function App() {
 
   const [userSelected, setUserSelected] = useState()
+  const [formIsOpen, setFormIsOpen] = useState(false)
 
   const [ users, getUsers, createUser, deleteUser, updateUser ] = useCrud('/users/')
   useEffect(() => {
     getUsers()
   }, [])
 
-  console.log(users)
+  // console.log(users)
+
+const handleOpenForm = () => {
+  setFormIsOpen(true)
+}
+
   return (
     <>
-      <h1>Use Crud</h1>
+      <div className='header'>
+        <h1>Usuarios</h1>
+        <button onClick={handleOpenForm}><i class="fa-solid fa-user-plus"></i>Agregar usuario</button>
+      </div>
       <FormUser
         createUser = {createUser}
         userSelected = {userSelected}
         updateUser={updateUser}
         setUserSelected = {setUserSelected}
+        formIsOpen={formIsOpen}
+        setFormIsOpen={setFormIsOpen}
       />
-      <div>
+      <div className='container'>
         {
           users?.map((user) => (
             <UserCard
@@ -31,6 +42,7 @@ function App() {
               user = {user}
               deleteUser = {deleteUser}
               setUserSelected = {setUserSelected}
+              setFormIsOpen={setFormIsOpen}
               
             />
           ))
